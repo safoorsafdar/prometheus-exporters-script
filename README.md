@@ -12,7 +12,7 @@ Repository includes the various scripts to install Prometheus exporters for Linu
 |  restart.sh |  Restart the node exporter | 
 
 
-## WMI Exporter [martinlindhe/wmi_exporter](https://github.com/martinlindhe/wmi_exporter)
+## WMI Exporter [prometheus-community/windows_exporter](https://github.com/prometheus-community/windows_exporter)
 
 |  Script |  Description | 
 |---|---|

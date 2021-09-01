@@ -1,4 +1,4 @@
-$ServiceName = "WMI Exporter"
+$ServiceName = "windows Exporter"
 $sHost = "127.0.0.1"
 $sPort = "9182"
 

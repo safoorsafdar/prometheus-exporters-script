@@ -1,4 +1,4 @@
-$ServiceName = "WMI Exporter"
+$ServiceName = "windows Exporter"
 $Service = Get-Service -Name $ServiceName
 if($Service.Status -eq "running"){
   Write-Host "$ServiceName is running"

@@ -1,11 +1,11 @@
-$version = "0.9.0"
+$version = "0.16.0"
 
-$AgentURL = "https://github.com/martinlindhe/wmi_exporter/releases/download/v${version}/wmi_exporter-${version}-386.msi"
+$AgentURL = "https://github.com/prometheus-community/windows_exporter/releases/download/v${version}/windows_exporter-${version}-386.msi"
 $AbsoluteCurrPath = $(Get-Location).Path
-$AbsolutePathMSI = "${AbsoluteCurrPath}\tmp\wmi-exporter\wmi_exporter.msi"
+$AbsolutePathMSI = "${AbsoluteCurrPath}\tmp\windows-exporter\windows_exporter.msi"
 $EnabledCollectors = "cpu,cs,logical_disk,memory,net,os,process,service,system,tcp"
-$ServiceName = "WMI Exporter"
-$TempDirectoryToCreate =  "$AbsoluteCurrPath\tmp\wmi-exporter"
+$ServiceName = "windows Exporter"
+$TempDirectoryToCreate =  "$AbsoluteCurrPath\tmp\windows-exporter"
 
 # create temp directories
 if (-not (Test-Path -LiteralPath $TempDirectoryToCreate)) {
@@ -33,10 +33,9 @@ if($Service.Status -eq "running"){
     Write-Host "$ServiceName status is: $Service.Status"
 }
 # remove temp setup file
-if(Test-Path $AbsoluteCurrPath\tmp\wmi-exporter -PathType Container){
-    Remove-Item -Recurse -Force $AbsoluteCurrPath\tmp\wmi-exporter
+if(Test-Path $AbsoluteCurrPath\tmp\windows-exporter -PathType Container){
+    Remove-Item -Recurse -Force $AbsoluteCurrPath\tmp\windows-exporter
 } else {
     Write-Host "TMP path not available"  
 }
  
-
