@@ -3,7 +3,7 @@ $version = "0.16.0"
 $AgentURL = "https://github.com/prometheus-community/windows_exporter/releases/download/v${version}/windows_exporter-${version}-386.msi"
 $AbsoluteCurrPath = $(Get-Location).Path
 $AbsolutePathMSI = "${AbsoluteCurrPath}\tmp\windows-exporter\windows_exporter.msi"
-$EnabledCollectors = "cpu,cs,logical_disk,memory,net,os,process,service,system,tcp"
+$EnabledCollectors = "[defaults],cpu,cs,logical_disk,memory,net,os,process,service,system,tcp"
 $ServiceName = "windows Exporter"
 $TempDirectoryToCreate =  "$AbsoluteCurrPath\tmp\windows-exporter"
 
