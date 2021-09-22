@@ -1,4 +1,4 @@
-$ServiceName = "windows Exporter"
+$ServiceName = "windows_exporter"
 $sHost = "127.0.0.1"
 $sPort = "9182"
 

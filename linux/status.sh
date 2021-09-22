@@ -68,9 +68,9 @@ fi
 case $OSCHECK in
      "1")
         # Amazon Linux or CentOS 6 or RHEL 6
-        service node_exporter status
+        service node-exporter status
         if PID=$(pgrep node_export); then
-            echo -e "node_exporter is running, and p-id is: $PID\n";
+            echo -e "node-exporter is running, and p-id is: $PID\n";
             
             echo -e "Checking if port is open\n";
             nc -z -v -w5 ${HOST} ${PORT}
@@ -99,7 +99,7 @@ case $OSCHECK in
                 fi
             fi
         else 
-            echo "node_exporter is not running";
+            echo "node-exporter is not running";
             exit 1;
         fi        
         ;;
@@ -107,9 +107,9 @@ case $OSCHECK in
         # CentOS 7 or RHEL 7
         # Ubuntu 14+ - Trusty
         # Ubuntu 16 - Xenial
-        systemctl status node_exporter.service
+        systemctl status node-exporter
         if PID=$(pgrep node_export); then
-            echo -e "node_exporter is running, and p-id is: $PID\n";
+            echo -e "node-exporter is running, and p-id is: $PID\n";
             
             echo -e "Checking if port is open\n";
             nc -z -v -w5 ${HOST} ${PORT}
@@ -138,7 +138,7 @@ case $OSCHECK in
                 fi
             fi
         else 
-            echo "node_exporter is not running";
+            echo "node-exporter is not running";
             exit 1;
         fi
         ;;

@@ -65,12 +65,12 @@ fi
 case $OSCHECK in
      "1")
         # Amazon Linux or CentOS 6 or RHEL 6
-        service node_exporter restart
+        service node-exporter restart
         ;;
      *)
         # CentOS 7 or RHEL 7
         # Ubuntu 14+ - Trusty
         # Ubuntu 16 - Xenial
-        systemctl restart node_exporter.service
+        systemctl restart node-exporter
         ;;
 esac

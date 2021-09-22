@@ -4,7 +4,7 @@ $AgentURL = "https://github.com/prometheus-community/windows_exporter/releases/d
 $AbsoluteCurrPath = $(Get-Location).Path
 $AbsolutePathMSI = "${AbsoluteCurrPath}\tmp\windows-exporter\windows_exporter.msi"
 $EnabledCollectors = "[defaults],cpu,cs,logical_disk,memory,net,os,process,service,system,tcp"
-$ServiceName = "windows Exporter"
+$ServiceName = "windows_exporter"
 $TempDirectoryToCreate =  "$AbsoluteCurrPath\tmp\windows-exporter"
 
 # create temp directories
@@ -26,7 +26,7 @@ Invoke-WebRequest $AgentURL -OutFile $AbsolutePathMSI
 (Start-Process "msiexec.exe" -ArgumentList "/i ${AbsolutePathMSI} ENABLED_COLLECTORS=$EnabledCollectors /qb!" -NoNewWindow -Wait -PassThru).ExitCode
 
 # Check Status of Service
-$Service = Get-Service -Name $ServiceName
+$Service = Get-Service -Name "$ServiceName"
 if($Service.Status -eq "running"){
   Write-Host "$ServiceName is running"  
 } else {

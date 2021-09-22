@@ -1,7 +1,7 @@
 #!/bin/sh
 # remove binaries
 # remove service
-bin_dir="${BIN_DIR:-/usr/local/bin}"
+bin_dir="${BIN_DIR:-/opt}"
 
 # remove bin folder
 rm -rf ${bin_dir}/node_exporter
@@ -68,19 +68,19 @@ else
     OSCHECK=0
 fi
 case $OSCHECK in
-     "1")
+    "1")
         # Amazon Linux or CentOS 6 or RHEL 6
-        chkconfig node_exporter off
-        service node_exporter stop
-        rm -rf /etc/init.d/node_exporter
+        chkconfig node-exporter off
+        service node-exporter stop
+        rm -rf /etc/init.d/node-exporter
         ;;
     *)
         # CentOS 7 or RHEL 7
         # Ubuntu 14+ - Trusty
         # Ubuntu 16 - Xenial
-        systemctl stop node_exporter.service
-        systemctl disable node_exporter.service
-        rm -f /etc/systemd/system/node_exporter.service
+        systemctl stop node-exporter
+        systemctl disable node-exporter
+        rm -f /lib/systemd/system/node-exporter.service
         systemctl daemon-reload
         systemctl reset-failed
         ;;
